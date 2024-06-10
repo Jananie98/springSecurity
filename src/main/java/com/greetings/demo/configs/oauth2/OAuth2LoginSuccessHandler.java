@@ -29,16 +29,16 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
             String email = oauth2User.getAttribute("email");
             String userName = oauth2User.getAttribute("name");
 
-//            if (!customerRepository.existsCustomerByEmail(email)) {
-//                Customer customer = new Customer();
-//                customer.setFirstName(userName);
-//                customer.setEmail(email);
-//                customer.setPassword("Dummy");
-//                customer.setVerified(true);
-//                customer = customerRepository.save(customer);
-//            }
-//            Customer customer = customerRepository.findCustomerByEmail(email);
-//            jwtToken = jwtUtil.generateToken(customer);
+            if (!customerRepository.existsCustomerByEmail(email)) {
+                Customer customer = new Customer();
+                customer.setFirstName(userName);
+                customer.setEmail(email);
+                customer.setPassword("Dummy");
+                customer.setVerified(true);
+                customer = customerRepository.save(customer);
+            }
+            Customer customer = customerRepository.findCustomerByEmail(email);
+            jwtToken = jwtUtil.generateToken(customer);
 
             if (jwtToken != null) {
                 // Send the JWT token in the response
