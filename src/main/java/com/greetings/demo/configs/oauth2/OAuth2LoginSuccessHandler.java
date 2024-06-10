@@ -33,7 +33,7 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
                 Customer customer = new Customer();
                 customer.setFirstName(userName);
                 customer.setEmail(email);
-                customer.setPassword("Dummy");
+                customer.setPassword("Jimmy");
                 customer.setVerified(true);
                 customer = customerRepository.save(customer);
             }
